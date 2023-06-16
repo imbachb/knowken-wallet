@@ -15,8 +15,9 @@ dfx canister create internet_identity --no-wallet
 dfx canister create backend --no-wallet
 dfx canister create frontend --no-wallet
 
-dfx generate internet_identity
-dfx generate backend
+dfx build internet_identity
+dfx build backend
+dfx build frontend
 ```
 
 Then start dfx replica
