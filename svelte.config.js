@@ -17,6 +17,9 @@ const config = {
 	preprocess: preprocess({
 		postcss: {
 			plugins: [autoprefixer]
+		},
+		scss: {
+			prependData: '@use "' + filesPath('src/variables.scss') + '" as *;'
 		}
 	}),
 	kit: {

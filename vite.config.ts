@@ -5,6 +5,8 @@ import { join } from 'path';
 import type { UserConfig } from 'vite';
 import { defineConfig, loadEnv } from 'vite';
 
+const frontendFilesPath = (path: string) => `src/frontend/${path}`;
+
 // npm run dev = local
 // npm run build = local
 // dfx deploy = local
@@ -58,6 +60,13 @@ const config: UserConfig = {
 			// Node.js global to browser globalThis
 			define: {
 				global: 'globalThis'
+			}
+		}
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: '@use "' + frontendFilesPath('src/variables.scss') + '" as *;'
 			}
 		}
 	}
