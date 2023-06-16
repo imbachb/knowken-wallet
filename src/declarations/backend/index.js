@@ -39,6 +39,3 @@ export const createActor = (canisterId, options = {}) => {
     ...options.actorOptions,
   });
 };
-
-const host = import.meta.env.VITE_HOST;
-export const backend = createActor(canisterId, { agentOptions: { host } });
