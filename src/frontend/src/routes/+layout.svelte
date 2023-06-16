@@ -1,19 +1,21 @@
 <script>
-    import '../app.scss';
-    import Header from '../lib/Header.svelte';
-    // import Header from '$lib/Header.svelte'; // TODO: Why does this not work?
+  import '../app.scss';
+  import Header from '../lib/Header.svelte';
+  // import Header from '$lib/Header.svelte'; // TODO: Why does this not work?
 </script>
 
 <div>
-    <Header />
+  <Header />
 
-    <main>
-        <slot />
-    </main>
+  <main>
+    <slot />
+  </main>
 
-    <footer>
-        <p>Footer content. Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-    </footer>
+  <footer>
+    <p>
+      Footer content. Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit
+    </p>
+  </footer>
 </div>
 
 <style lang="scss">
