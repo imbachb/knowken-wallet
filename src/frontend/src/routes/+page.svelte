@@ -36,7 +36,7 @@
 	<form on:submit|preventDefault={handleOnSubmit}>
 		<label for="name">Enter your name: &nbsp;</label>
 		<input id="name" alt="Name" type="text" bind:value={input} {disabled} />
-		<button type="submit">Click Me!</button>
+		<button class="btn btn-primary" type="submit">Click Me!</button>
 	</form>
 
 	<section id="greeting">
