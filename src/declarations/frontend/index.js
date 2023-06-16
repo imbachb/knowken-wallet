@@ -40,4 +40,5 @@ export const createActor = (canisterId, options = {}) => {
   });
 };
 
-export const frontend = createActor(canisterId);
+const host = import.meta.env.VITE_HOST;
+export const frontend = createActor(canisterId, { agentOptions: { host } });

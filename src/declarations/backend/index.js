@@ -40,4 +40,5 @@ export const createActor = (canisterId, options = {}) => {
   });
 };
 
-export const backend = createActor(canisterId);
+const host = import.meta.env.VITE_HOST;
+export const backend = createActor(canisterId, { agentOptions: { host } });
