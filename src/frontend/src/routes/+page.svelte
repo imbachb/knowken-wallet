@@ -28,7 +28,12 @@
 	};
 </script>
 
-<main>
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
+</svelte:head>
+
+<div>
 	<img src="logo2.svg" alt="DFINITY logo" />
 	<br />
 	<br />
@@ -42,7 +47,4 @@
 	<section id="greeting">
 		{greeting}
 	</section>
-</main>
-
-<style lang="scss">
-</style>
+</div>
