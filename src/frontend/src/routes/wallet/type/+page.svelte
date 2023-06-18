@@ -3,4 +3,4 @@
   <meta name="description" content="Knowledge Token Type" />
 </svelte:head>
 
-<div>Hello Type!</div>
+<h1>Hello Type!</h1>

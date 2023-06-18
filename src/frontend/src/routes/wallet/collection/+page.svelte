@@ -3,4 +3,4 @@
   <meta name="description" content="Knowledge Token Collection" />
 </svelte:head>
 
-<div>Hello Collection!</div>
+<h1>Hello Collection!</h1>
