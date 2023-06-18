@@ -19,7 +19,7 @@
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
     "prebuild": "npm run generate",
-    "generate": "dfx generate && node ./update.types.mjs && npm run format"
+    "generate": "dfx generate && npm run format"
   },
   "type": "module",
   "dependencies": {

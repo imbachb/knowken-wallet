@@ -40,6 +40,7 @@ const config = {
       appTemplate: filesPath('src/app.html'),
       errorTemplate: filesPath('src/error.html'),
     },
+    outDir: './src/frontend/.svelte-kit',
   },
   serviceWorker: {
     register: false,

@@ -1,7 +1,6 @@
 <script>
   import '../app.scss';
-  import Header from '../lib/Header.svelte';
-  // import Header from '$lib/Header.svelte'; // TODO: Why does this not work?
+  import Header from '$lib/Header.svelte';
 </script>
 
 <div>

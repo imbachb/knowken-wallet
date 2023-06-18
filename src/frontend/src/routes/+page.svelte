@@ -1,6 +1,5 @@
 <script lang="ts">
-  // TODO: $lib not working
-  import { backend } from '../lib/actors';
+  import { backend } from '$lib/actors';
 
   let input = '';
   let disabled = false;
