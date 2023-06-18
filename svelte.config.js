@@ -41,6 +41,9 @@ const config = {
       errorTemplate: filesPath('src/error.html'),
     },
     outDir: './src/frontend/.svelte-kit',
+    alias: {
+      '$components/*': filesPath('src/components/*'),
+    },
   },
   serviceWorker: {
     register: false,
