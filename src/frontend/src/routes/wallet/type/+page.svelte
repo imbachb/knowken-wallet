@@ -1,6 +1,17 @@
+<script>
+  import TokenType from '$components/TokenType.svelte';
+
+  export let data;
+</script>
+
 <svelte:head>
   <title>Type</title>
   <meta name="description" content="Knowledge Token Type" />
 </svelte:head>
 
-<h1>Hello Type!</h1>
+<h1>Type</h1>
+<div class="row">
+  {#each data.tokenTypes as tokenType}
+    <TokenType {tokenType} />
+  {/each}
+</div>

@@ -5,8 +5,6 @@ export const load = async ({ params }) => {
   const tokenCategory = await tokenService.getTokenCategoryBySlug(params.slug);
   return {
     tokenCategory,
-    tokens: tokenCategory
-      ? await tokenService.getTokensByCategoryName(tokenCategory.name)
-      : undefined,
+    tokens: tokenCategory ? await tokenService.getTokensByCategoryName(tokenCategory.name) : [],
   };
 };
