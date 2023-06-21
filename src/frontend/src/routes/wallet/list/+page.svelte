@@ -1,5 +1,5 @@
 <script>
-  import Token from '$components/Token.svelte';
+  import Grid from 'gridjs-svelte';
 
   export let data;
 </script>
@@ -10,8 +10,8 @@
 </svelte:head>
 
 <h1>List ({data.tokens.length})</h1>
-<div class="row">
-  {#each data.tokens as token}
-    <Token {token} />
-  {/each}
-</div>
+<Grid data={data.tokens} search sort />
+
+<style global>
+  @import 'https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css';
+</style>

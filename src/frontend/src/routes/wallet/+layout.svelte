@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
 </script>
 
-<div class="mb-3 bg-light">
+<div class="bg-light fixed-top" style="top: 60px">
   <div class="row">
     <div class="col pe-0">
       <!-- TODO: Apply btn-outline-info when selected -->
@@ -31,4 +31,6 @@
     </div>
   </div>
 </div>
-<slot />
+<div style="padding-top: 35px;">
+  <slot />
+</div>
