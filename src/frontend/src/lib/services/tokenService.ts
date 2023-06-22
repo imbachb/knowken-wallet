@@ -122,56 +122,87 @@ export default class TokenService {
 
   tokenTypes: TokenType[] = [
     new TokenType({ id: 0, name: 'plain', transferable: false, nrTokens: 0 }),
-    new TokenType({ id: 1, name: 'effort', transferable: true, nrTokens: 8 }),
-    new TokenType({ id: 2, name: 'achievement', transferable: false, nrTokens: 1 }),
-    new TokenType({ id: 3, name: 'certificate', transferable: false, nrTokens: 1 }),
+    new TokenType({ id: 1, name: 'effort', transferable: true, nrTokens: 0 }),
+    new TokenType({ id: 2, name: 'achievement', transferable: false, nrTokens: 0 }),
+    new TokenType({ id: 3, name: 'certificate', transferable: false, nrTokens: 0 }),
   ];
   tokenCategories: TokenCategory[] = [
-    new TokenCategory({ id: 0, name: 'Music', nrTokens: 3, frame: 'achievement', icon: 'music' }),
+    new TokenCategory({ id: 0, name: 'Music', nrTokens: 0, frame: 'achievement', icon: 'music' }),
     new TokenCategory({
       id: 1,
       name: 'Arts',
-      nrTokens: 5,
+      nrTokens: 0,
       frame: 'certificate',
       icon: 'painting',
     }),
     new TokenCategory({
       id: 2,
       name: 'Philosophy',
-      nrTokens: 4,
+      nrTokens: 0,
       frame: 'effort',
       icon: 'society',
     }),
-    new TokenCategory({ id: 3, name: 'Economy', nrTokens: 3, frame: 'plain', icon: 'growth' }),
+    new TokenCategory({ id: 3, name: 'Economy', nrTokens: 0, frame: 'plain', icon: 'growth' }),
   ];
 
   public async getTokenTypes(): Promise<TokenType[]> {
-    return Promise.resolve(this.tokenTypes);
+    const tokenTypes = this.tokenTypes.map((tt) => new TokenType({ ...tt }));
+    tokenTypes.forEach((tt) => {
+      tt.nrTokens = this.tokens.filter((tk) => tk.frame === tt.name).length;
+    });
+    return Promise.resolve(tokenTypes);
   }
 
   public async getTokens(): Promise<Token[]> {
     // Create some fake tokens
-    return Promise.resolve(this.tokens);
+    return Promise.resolve(this.tokens.map((tk) => new Token({ ...tk })));
+  }
+
+  public async updateToken(token: Token): Promise<void> {
+    console.log('hello');
+    const existingToken = this.tokens.find((tk) => tk.id === token.id);
+    if (existingToken) {
+      existingToken.categories = [...token.categories];
+    }
   }
 
   public async getTokensByCategoryName(tokenCategoryName: string): Promise<Token[]> {
-    return Promise.resolve(this.tokens.filter((tk) => tk.categories.includes(tokenCategoryName)));
+    return Promise.resolve(
+      this.tokens
+        .filter((tk) => tk.categories.includes(tokenCategoryName))
+        .map((tk) => new Token({ ...tk })),
+    );
   }
 
   public async getTokenCategories(): Promise<TokenCategory[]> {
-    return Promise.resolve(this.tokenCategories);
+    const tokenCategories = this.tokenCategories.map((tkc) => new TokenCategory({ ...tkc }));
+    tokenCategories.forEach((tkc) => {
+      tkc.nrTokens = this.tokens.filter((tk) => tk.categories.includes(tkc.name)).length;
+    });
+    return Promise.resolve(tokenCategories);
   }
 
   public async getTokenCategoryBySlug(slug: string): Promise<TokenCategory | undefined> {
-    return Promise.resolve(this.tokenCategories.find((tk) => tk.name.toLowerCase() === slug));
+    const tokenCategory = new TokenCategory({
+      ...this.tokenCategories.find((tk) => tk.name.toLowerCase() === slug),
+    });
+    tokenCategory.nrTokens = this.tokens.filter((tk) =>
+      tk.categories.includes(tokenCategory.name),
+    ).length;
+    return Promise.resolve(tokenCategory);
   }
 
   public async getTokenTypeBySlug(slug: string): Promise<TokenType | undefined> {
-    return Promise.resolve(this.tokenTypes.find((tt) => tt.name.toLowerCase() === slug));
+    const tokenType = this.tokenTypes.find((tt) => tt.name.toLowerCase() === slug);
+    return Promise.resolve(tokenType ? new TokenType({ ...tokenType }) : undefined);
   }
 
   public async getTokensByType(tokenTypeName: string): Promise<Token[]> {
-    return Promise.resolve(this.tokens.filter((tk) => tk.frame.includes(tokenTypeName)));
+    return Promise.resolve(
+      this.tokens
+        .filter((tk) => tk.frame.includes(tokenTypeName))
+        .map((tk) => new Token({ ...tk })),
+    );
   }
 }
 
