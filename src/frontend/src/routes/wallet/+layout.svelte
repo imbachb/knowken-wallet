@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
 </script>
 
-<div class="bg-light fixed-top" style="top: 60px">
+<div class="bg-light position-fixed z-1" style="top: 60px; right: 0px; left: 0px;">
   <div class="row">
     <div class="col pe-0">
       <!-- TODO: Apply btn-outline-info when selected -->

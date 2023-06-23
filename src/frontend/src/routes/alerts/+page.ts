@@ -4,6 +4,6 @@ import { tokenService } from '$lib/services/tokenService';
 export const load = async () => {
   const tokens = await tokenService.getTokens();
   return {
-    tokens,
+    tokens: tokens,
   };
 };

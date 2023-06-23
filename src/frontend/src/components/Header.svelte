@@ -1,4 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="z-index: 5">
+<script lang="ts">
+  const OnToggleButtonClicked = () => {
+    const collapsableContent = document.getElementById('navbarSupportedContent');
+    collapsableContent?.classList.toggle('collapse');
+  };
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/knowken-logo.png" alt="LOGO" width="30" height="30" class="d-inline-block" />
@@ -10,16 +17,12 @@
     <button
       style="border: none"
       class="navbar-toggler m-0 p-0"
+      on:click={OnToggleButtonClicked}
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse z-1" id="navbarSupportedContent">
       <!-- Left -->
       <div class="me-auto">
         <ul class="navbar-nav mb-2 mb-lg-0">

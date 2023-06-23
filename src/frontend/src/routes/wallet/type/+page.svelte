@@ -12,6 +12,8 @@
 <h1>Type</h1>
 <div class="row">
   {#each data.tokenTypes as tokenType}
-    <TokenType {tokenType} />
+    <div class="col-sm-4 col-6 mb-4">
+      <TokenType {tokenType} />
+    </div>
   {/each}
 </div>

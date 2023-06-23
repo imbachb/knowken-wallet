@@ -14,7 +14,9 @@
 
   <div class="row">
     {#each data.tokens as token}
-      <Token {token} />
+      <div class="col-sm-4 col-6 mb-4">
+        <Token {token} />
+      </div>
     {/each}
   </div>
 {/if}

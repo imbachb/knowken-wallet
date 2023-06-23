@@ -97,7 +97,7 @@ export default class TokenService {
       icon: 'music',
     }),
     new Token({
-      id: 7,
+      id: 8,
       name: 'Winner of Jodelfest',
       categories: ['Music'],
       creatorName: 'Zuger Jodelverein',
@@ -108,7 +108,7 @@ export default class TokenService {
       icon: 'music',
     }),
     new Token({
-      id: 8,
+      id: 9,
       name: 'Winner of Jodelfest',
       categories: ['Music'],
       creatorName: 'Zuger Jodelverein',

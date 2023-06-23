@@ -14,7 +14,11 @@
 
 <div class="row">
   {#each data.tokenCategories as tokenCategory}
-    <TokenCategory {tokenCategory} />
+    <div class="col-sm-4 col-6 mb-4">
+      <TokenCategory {tokenCategory} />
+    </div>
   {/each}
-  <TokenCategory />
+  <div class="col-sm-4 col-6 mb-4">
+    <TokenCategory />
+  </div>
 </div>
