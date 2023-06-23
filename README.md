@@ -8,6 +8,12 @@ Install all JavaScript dependencies
 npm install
 ```
 
+Start dfx replica
+
+```bash
+dfx start --clean --background
+```
+
 Set up canisters
 
 ```bash
@@ -20,20 +26,23 @@ dfx build backend
 dfx build frontend
 ```
 
-Then start dfx replica
-
-```bash
-dfx start --clean --background
-```
-
 Deploy the canisters in the replica
 
 ```bash
-dfx deploy internet_identity
-dfx deploy background
+dfx deploy internet_identity --no-wallet
+dfx deploy backend --no-wallet
+dfx deploy frontend --no-wallet
 ```
 
-You can also deploy the frontend canister. However, for local development it is not necessary. Simply run
+When the process completes you'll have a frontend canister running locally. To find the frontend canister's ID, run
+
+```
+dfx canister id frontend
+```
+
+It will output something similar to `br5f7-7uaaa-aaaaa-qaaca-cai`. Copy this ID and open it in the browser using `http://<canister ID>localhost:4943`, eg. `http://br5f7-7uaaa-aaaaa-qaaca-cai.localhost:4943`.
+
+During local development the deployment of the frontend canister is not necessary. Simply run
 
 ```bash
 npm run dev
