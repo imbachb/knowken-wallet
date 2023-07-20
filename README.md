@@ -40,7 +40,7 @@ When the process completes you'll have a frontend canister running locally. To f
 dfx canister id frontend
 ```
 
-It will output something similar to `br5f7-7uaaa-aaaaa-qaaca-cai`. Copy this ID and open it in the browser using `http://<canister ID>localhost:4943`, eg. `http://br5f7-7uaaa-aaaaa-qaaca-cai.localhost:4943`.
+It will output something similar to `br5f7-7uaaa-aaaaa-qaaca-cai`. Copy this ID and open it in the browser using `http://<canister ID>.localhost:4943`, eg. `http://br5f7-7uaaa-aaaaa-qaaca-cai.localhost:4943`.
 
 During local development the deployment of the frontend canister is not necessary. Simply run
 

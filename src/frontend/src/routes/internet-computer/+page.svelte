@@ -25,7 +25,7 @@
 </svelte:head>
 
 <div>
-  <img src="logo2.svg" alt="DFINITY logo" />
+  <img src="/logo2.svg" alt="DFINITY logo" />
   <br />
   <br />
 

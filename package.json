@@ -23,9 +23,10 @@
   },
   "type": "module",
   "dependencies": {
-    "@dfinity/agent": "^0.15.6",
-    "@dfinity/candid": "^0.15.6",
-    "@dfinity/principal": "^0.15.6",
+    "@dfinity/agent": "^0.18.1",
+    "@dfinity/auth-client": "^0.18.1",
+    "@dfinity/candid": "^0.18.1",
+    "@dfinity/principal": "^0.18.1",
     "bootstrap-icons": "^1.10.5",
     "gridjs": "^6.0.6",
     "gridjs-svelte": "^2.1.1"

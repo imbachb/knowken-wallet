@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { authStore } from '$lib/stores/auth.store';
+
   const OnToggleButtonClicked = () => {
     const collapsableContent = document.getElementById('navbarSupportedContent');
     collapsableContent?.classList.toggle('collapse');
@@ -23,34 +25,36 @@
       <span class="navbar-toggler-icon" />
     </button>
     <div class="collapse navbar-collapse z-1" id="navbarSupportedContent">
-      <!-- Left -->
-      <div class="me-auto">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/admin">Admin</a>
-          </li>
-        </ul>
-      </div>
       <!-- Right -->
       <div class="ms-auto">
         <ul class="navbar-nav">
+          {#if $authStore.identity !== null}
+            <li class="nav-item">
+              <a class="nav-link" href="/"><i class="bi bi-house me-1" />Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <!-- TODO: Only text-danger if not empty -->
+              <a class="nav-link text-danger" href="/alerts"
+                ><i class="bi bi-chat me-1" />Incoming Tokens <!-- TODO: Add nr of incoming tokens --></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account"><i class="bi bi-person me-1" />Account / ID</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/internet-computer">Internet Computer Test</a>
+            </li>
+          {/if}
           <li class="nav-item">
-            <a class="nav-link" href="/"><i class="bi bi-house me-1" />Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <!-- TODO: Only text-danger if not empty -->
-            <a class="nav-link text-danger" href="/alerts"
-              ><i class="bi bi-chat me-1" />Incoming Tokens <!-- TODO: Add nr of incoming tokens --></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/account"><i class="bi bi-person me-1" />Account / ID</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/internet-computer">Internet Computer Test</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="bi bi-door-open me-1" />Logout</a>
+            {#if $authStore.identity !== null}
+              <button class="btn nav-link" on:click={async () => authStore.signOut()}
+                ><i class="bi bi-door-open me-1" />Logout</button
+              >
+            {:else}
+              <button class="btn nav-link" on:click={async () => authStore.signIn({})}
+                ><i class="bi bi-door-open me-1" />Login</button
+              >
+            {/if}
           </li>
         </ul>
       </div>
