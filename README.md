@@ -36,7 +36,7 @@ dfx deploy frontend --no-wallet
 
 When the process completes you'll have a frontend canister running locally. To find the frontend canister's ID, run
 
-```
+```bash
 dfx canister id frontend
 ```
 
